@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS configurations (id uuid PRIMARY KEY DEFAULT gen_random_uuid(), session_key text NOT NULL, model_slug text NOT NULL, body_color text NOT NULL, wheels text NOT NULL, interior text NOT NULL, created_at timestamptz NOT NULL DEFAULT now())

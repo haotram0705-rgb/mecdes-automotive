@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS test_drives (id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL, phone text NOT NULL, model text NOT NULL, drive_date date NOT NULL, drive_time text NOT NULL, status text NOT NULL DEFAULT 'pending', created_at timestamptz NOT NULL DEFAULT now())

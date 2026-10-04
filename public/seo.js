@@ -1,0 +1,1 @@
+document.title='MECDEX — Digital Automotive Experience';const m=document.createElement('meta');m.name='description';m.content='MECDEX là showroom automotive digital tương tác: catalog xe, configurator, 360° studio, soundscape, motion film và đặt lịch lái thử.';document.head.appendChild(m);

@@ -1,0 +1,1 @@
+window.MECDEX_REFERENCE={updated:'October 2026',sources:['Mercedes-Benz Vietnam official model/configurator pages','Porsche Vietnam official model comparison/configurator pages'],note:'MECDEX is a fictional showcase brand and is not affiliated with Mercedes-Benz or Porsche. Manufacturer data is reference-only and can change by market, trim, options and time.'};

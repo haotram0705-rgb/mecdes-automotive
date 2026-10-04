@@ -1,0 +1,10 @@
+ALTER TABLE vehicle_models ADD COLUMN IF NOT EXISTS trim text;
+ALTER TABLE vehicle_models ADD COLUMN IF NOT EXISTS engine text;
+ALTER TABLE vehicle_models ADD COLUMN IF NOT EXISTS fuel_type text;
+ALTER TABLE vehicle_models ADD COLUMN IF NOT EXISTS torque_nm integer;
+ALTER TABLE vehicle_models ADD COLUMN IF NOT EXISTS drivetrain text;
+ALTER TABLE vehicle_models ADD COLUMN IF NOT EXISTS battery_capacity_kwh numeric(7,2);
+ALTER TABLE vehicle_models ADD COLUMN IF NOT EXISTS range_km integer;
+ALTER TABLE vehicle_models ADD COLUMN IF NOT EXISTS source_url text;
+ALTER TABLE vehicle_models ADD COLUMN IF NOT EXISTS specs_checked_at date;
+ALTER TABLE vehicle_models ADD COLUMN IF NOT EXISTS price_checked_at date;

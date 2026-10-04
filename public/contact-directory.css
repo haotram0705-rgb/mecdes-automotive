@@ -1,0 +1,295 @@
+/* MECDEX test-drive booking + contact directory screen */
+#drive.contact-drive {
+  --contact-ink-soft: #92989d;
+  --contact-label: #747b80;
+  --contact-error: #ff938b;
+  --contact-rule: rgba(255, 255, 255, .09);
+  min-height: calc(100vh - 78px);
+  padding: 0 4vw 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+#drive.contact-drive .drive-panel {
+  display: grid;
+  grid-template-columns: minmax(320px, .92fr) minmax(0, 1.48fr);
+  align-items: start;
+  gap: clamp(34px, 4.5vw, 68px);
+  width: min(100%, 1320px);
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 128px 0 104px;
+}
+
+#drive.contact-drive .intro { min-width: 0; padding-top: 2px; }
+#drive.contact-drive .kicker {
+  margin: 0 0 23px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+}
+#drive.contact-drive #drive-title {
+  max-width: 450px;
+  margin: 0;
+  color: var(--text);
+  font: 600 clamp(72px, 7vw, 106px)/.87 'Space Grotesk', sans-serif;
+  letter-spacing: -.075em;
+}
+#drive.contact-drive .intro-copy {
+  max-width: 330px;
+  margin: 32px 0 0;
+  color: var(--contact-ink-soft);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+#drive.contact-drive .action-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 252px;
+  align-items: start;
+  gap: 30px;
+  min-width: 0;
+}
+#drive.contact-drive .booking-form {
+  display: grid;
+  gap: 17px;
+  min-width: 0;
+  margin: 0;
+}
+#drive.contact-drive .field {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+}
+#drive.contact-drive .field label {
+  display: block;
+  margin: 0;
+  color: var(--contact-label);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+#drive.contact-drive .field input,
+#drive.contact-drive .field select {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  margin: 0;
+  border: 1px solid #2b3034;
+  border-radius: 0;
+  outline: none;
+  background-color: #101315;
+  color: var(--text);
+  padding: 0 14px;
+  font: 400 14px 'Inter', Arial, sans-serif;
+  color-scheme: dark;
+  transition: border-color .2s, box-shadow .2s;
+}
+#drive.contact-drive .field input::placeholder { color: #8e9499; opacity: 1; }
+#drive.contact-drive .field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='m1 1 5 5 5-5' fill='none' stroke='%23aeb3b6' stroke-width='1.4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  padding-right: 38px;
+}
+#drive.contact-drive .field input:focus-visible,
+#drive.contact-drive .field select:focus-visible,
+#drive.contact-drive .submit:focus-visible {
+  border-color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px rgba(217, 255, 63, .08);
+}
+#drive.contact-drive .date-time {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+}
+#drive.contact-drive .submit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 46px;
+  margin: 1px 0 0;
+  border: 1px solid var(--accent);
+  border-radius: 0;
+  background: var(--accent);
+  color: #090b0b;
+  padding: 0 16px;
+  font: 700 9px/1 'Inter', Arial, sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+#drive.contact-drive .submit:hover { box-shadow: 0 12px 35px rgba(217, 255, 63, .16); }
+#drive.contact-drive .submit:disabled { opacity: .6; cursor: wait; transform: none; }
+#drive.contact-drive .submit-arrow { font-size: 17px; line-height: 1; }
+#drive.contact-drive .field-error {
+  margin: 0;
+  color: var(--contact-error);
+  font-size: 12px;
+  line-height: 1.45;
+}
+#drive.contact-drive .field-error[hidden] { display: none !important; }
+#drive.contact-drive #driveForm [aria-invalid="true"] {
+  border-color: var(--contact-error);
+  box-shadow: 0 0 0 1px var(--contact-error);
+}
+#drive.contact-drive .form-status { margin: 0; }
+#drive.contact-drive .form-status[data-state="error"] {
+  border-color: rgba(255, 147, 139, .55);
+  background: rgba(91, 34, 34, .24);
+  color: #ffd2ce;
+}
+#drive.contact-drive .form-status[data-state="success"] {
+  border-color: rgba(150, 190, 166, .4);
+  background: rgba(44, 77, 57, .2);
+  color: #d8e9dc;
+}
+#drive.contact-drive .form-status[hidden] { display: none !important; }
+#drive.contact-drive .form-note {
+  margin: -7px 0 0;
+  color: #62696e;
+  font-size: 9px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+#drive.contact-drive .contact-directory {
+  min-width: 0;
+  align-self: stretch;
+  border-left: 1px solid #292e31;
+  padding: 3px 0 0 26px;
+}
+#drive.contact-drive .contact-directory h3 {
+  margin: 0 0 12px;
+  color: var(--text);
+  font: 600 18px/1.25 'Space Grotesk', sans-serif;
+  letter-spacing: -.02em;
+}
+#drive.contact-drive .contact-explainer {
+  max-width: 250px;
+  margin: 0 0 28px;
+  color: var(--contact-ink-soft);
+  font-size: 11px;
+  line-height: 1.7;
+}
+#drive.contact-drive .channel-list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#drive.contact-drive .channel-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 65px;
+  border-top: 1px solid var(--contact-rule);
+  color: #e5e7e4;
+}
+#drive.contact-drive .channel-name {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+  color: #e5e7e4;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+#drive.contact-drive .channel-name i {
+  width: 18px;
+  color: #c3c8c5;
+  font-size: 17px;
+  text-align: center;
+}
+#drive.contact-drive .channel-state {
+  color: #777e82;
+  font-size: 9px;
+  line-height: 1.45;
+  text-align: right;
+}
+
+/* The existing comparison launcher occupies the nav's open right-hand slot. */
+.compare-launch {
+  top: 20px;
+  right: 4vw;
+  bottom: auto;
+  z-index: 1000;
+  min-height: 36px;
+  padding: 10px 14px;
+}
+.compare-launch::before { content: '◦ '; color: var(--text); }
+.nav nav { margin-right: 138px; }
+
+@media (max-width: 1050px) {
+  #drive.contact-drive { padding-right: 32px; padding-left: 32px; }
+  #drive.contact-drive .drive-panel {
+    grid-template-columns: minmax(250px, .8fr) minmax(0, 1.4fr);
+    gap: 36px;
+  }
+  #drive.contact-drive .action-layout { grid-template-columns: minmax(0, 1fr) 224px; gap: 22px; }
+  #drive.contact-drive #drive-title { font-size: clamp(66px, 7.4vw, 82px); }
+  .nav { padding-right: calc(4vw + 138px); }
+  .nav nav { gap: 21px; margin-right: 0; }
+}
+
+@media (max-width: 760px) {
+  #drive.contact-drive { min-height: 0; padding: 0 22px; }
+  #drive.contact-drive .drive-panel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+    padding: 72px 0 64px;
+  }
+  #drive.contact-drive #drive-title { max-width: 320px; font-size: clamp(62px, 12vw, 82px); }
+  #drive.contact-drive .intro-copy { margin-top: 19px; font-size: 12px; }
+  #drive.contact-drive .action-layout { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  #drive.contact-drive .contact-directory { border-top: 1px solid #292e31; border-left: 0; padding: 22px 0 0; }
+  #drive.contact-drive .contact-directory h3 { font-size: 16px; }
+  #drive.contact-drive .contact-explainer { max-width: none; margin-bottom: 14px; }
+  #drive.contact-drive .channel-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  #drive.contact-drive .channel-row {
+    min-height: 72px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 0 0;
+    border-top-color: rgba(255, 255, 255, .13);
+  }
+  #drive.contact-drive .channel-name { gap: 8px; font-size: 11px; }
+  #drive.contact-drive .channel-name i { width: 16px; font-size: 15px; }
+  #drive.contact-drive .channel-state { padding-left: 24px; font-size: 8px; text-align: left; }
+  .nav { padding: 0 22px; }
+  .compare-launch { top: 15px; right: 22px; min-height: 36px; }
+}
+
+@media (max-width: 430px) {
+  #drive.contact-drive { padding-right: 18px; padding-left: 18px; }
+  #drive.contact-drive .drive-panel { padding-top: 56px; }
+  #drive.contact-drive .channel-list { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  #drive.contact-drive .channel-row {
+    min-height: 52px;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 9px 0;
+  }
+  #drive.contact-drive .channel-name { font-size: 12px; }
+  #drive.contact-drive .channel-state { padding-left: 0; text-align: right; }
+  #drive.contact-drive .booking-form { gap: 14px; }
+  #drive.contact-drive .field input,
+  #drive.contact-drive .field select { min-height: 46px; font-size: 13px; }
+  .compare-launch { right: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #drive.contact-drive *, #drive.contact-drive *::before, #drive.contact-drive *::after { transition-duration: .01ms !important; }
+}

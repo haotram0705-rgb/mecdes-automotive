@@ -1,0 +1,4 @@
+import { db } from 'hatchable';
+export const access='public';
+export const methods=['POST'];
+export default async function(req,res){const b=req.body||{};if(!b.model_slug||!b.body_color||!b.wheels||!b.interior)return res.status(400).json({error:'Missing configuration fields'});const session_key=String(req.headers['x-mecdes-session']||'anonymous').slice(0,120);const {rows}=await db.query('INSERT INTO configurations (session_key,model_slug,body_color,wheels,interior) VALUES ($1,$2,$3,$4,$5) RETURNING id,created_at',[session_key,b.model_slug,b.body_color,b.wheels,b.interior]);res.json({ok:true,configuration:rows[0]})}

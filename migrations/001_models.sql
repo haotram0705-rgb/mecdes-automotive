@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS vehicle_models (id uuid PRIMARY KEY DEFAULT gen_random_uuid(), slug text UNIQUE NOT NULL, brand text NOT NULL, name text NOT NULL, category text NOT NULL, power_hp integer, zero_to_100 numeric(4,1), top_speed_kmh integer, powertrain text, price_vnd bigint, price_label text, image_url text, description text, created_at timestamptz NOT NULL DEFAULT now())

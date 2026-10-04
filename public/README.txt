@@ -1,0 +1,1 @@
+MECDEX V4 automotive showcase. MECDEX is fictional and not affiliated with Mercedes-Benz or Porsche. Manufacturer reference data was checked against official Vietnam market pages in October 2026. Verify current price/specs and obtain licenses for commercial imagery before publication.
